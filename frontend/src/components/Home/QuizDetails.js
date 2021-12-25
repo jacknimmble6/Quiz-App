@@ -30,7 +30,7 @@ const QuizDetails = () => {
     const { modify, score } = useContext(MyContext)
 
     useEffect(() => {
-      axios.get(`https://quiz-app223.herokuapp.com/getQuiz/${id}/`)
+      axios.get(`https://quiz-app223.herokuapp.com/quiz/getQuiz/${id}/`)
       .then(res => {
           setQuizDetails1(res.data.questions)
           setQuizDifficulty(res.data.difficulty)
