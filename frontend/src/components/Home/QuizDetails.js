@@ -41,6 +41,9 @@ const QuizDetails = () => {
       .catch(err => {
           console.log(err)
       })
+      
+      setQuizScore('')
+     
       return () => {
           setQuizDetails1()
       }
