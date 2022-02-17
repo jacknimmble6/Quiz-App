@@ -1,7 +1,7 @@
 import { Typography, FormControl, FormControlLabel, FormLabel, Radio, 
   RadioGroup, Card, Box, CardContent, CardActions, Button } from '@mui/material'
 import CardHeader from '@mui/material/CardHeader';
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { MyContext } from '../userContext';
 import useStyles from './styles'
 
@@ -9,7 +9,11 @@ const QuestionForm = () => {
   const [quizAnswer1, setQuizAnswer1] = useState('')
   const classes = useStyles()
   const [current, setCurrent] = useState(0)
-  const { modify, state, score, sub, title, category, creator, del, difficulty } = useContext(MyContext)
+  const { modify, state, score, sub, title, category, creator, del, difficulty, setScore } = useContext(MyContext)
+  
+  useEffect(() => {
+    setScore(0)
+  }, [])
   
   const changeQuestion = () => {
     if (current < state.questions.length) {
